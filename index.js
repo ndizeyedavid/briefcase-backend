@@ -177,7 +177,7 @@ app.get('/history/view', (req, res)=>{
 
     const sql = "SELECT * FROM history";
     db.query(sql, (err, data)=>{
-        if (err) return console.log("\nFailed to fetch history data \nError: " + err.sqlMessage);
+        if (err) return console.log("\nFailed to fetch history data \nError: " + err);
         res.json({ status: 200, cont: data})
         // console.log('\n Fetched history Data on ' + now)
     })
