@@ -282,7 +282,7 @@ app.get('/tracking/view', (req, res)=>{
 // briefcase status
 app.get('/tracking/status', (req, res)=>{
     
-    const sql = "SELECT status FROM tracking";
+    const sql = "SELECT status FROM tracking ORDER BY date DESC";
     db.query(sql, (err, data)=>{
         if (err) return console.log("\nFailed to fetch briefcase status \nError: " + err.sqlMessage);
         res.json({ status: 200, cont: data})
