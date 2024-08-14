@@ -288,3 +288,15 @@ app.get('/tracking/status', (req, res)=>{
         res.json({ status: 200, cont: data})
     })
 })
+
+// Board inserting data
+app.post('/tracking/insert', (req, res)=>{
+    
+    let status = req.body.status;
+
+    const sql = "INSERT INTO tracking(latitude, longitude, status) VALUES(? , ? , ?)";
+    db.query(sql, ['-1.943487687631956', '30.06542407103269', status] , (err, data)=>{
+        if (err) return res.json({ status: 400, msg:"\nFailed to fetch briefcase status \nError: " + err.sqlMessage});
+        res.json({ status: 200, cont: "Data inserted successfully"});
+    })
+})
