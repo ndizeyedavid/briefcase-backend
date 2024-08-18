@@ -59,6 +59,9 @@ function notifyThis(notif){
     db.query(`INSERT INTO notifications(details) VALUES('${notif}')`);
 }
 
+function historyThis(details){
+    db.query(`INSERT INTO history(details) VALUES('${details}')`);
+}
 //  user signup
 app.post('/users/signup', (req, res)=>{
     let date = new Date();
@@ -291,12 +294,15 @@ app.get('/tracking/status', (req, res)=>{
 
 // Board inserting data
 app.post('/tracking/insert', (req, res)=>{
-    
+    let date = new Date();
+    let now = date.getHours() + ':' + date.getMinutes();
+
     let status = req.body.status;
 
     const sql = "INSERT INTO tracking(latitude, longitude, status) VALUES(? , ? , ?)";
     db.query(sql, ['-1.943487687631956', '30.06542407103269', status] , (err, data)=>{
         if (err) return res.json({ status: 400, msg:"\nFailed to fetch briefcase status \nError: " + err.sqlMessage});
+        historyThis("Briefcase status: " + status + " at: " + now);
         res.json({ status: 200, cont: "Data inserted successfully"});
     })
 })
