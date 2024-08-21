@@ -60,7 +60,7 @@ function notifyThis(notif){
 }
 
 function historyThis(details){
-    db.query(`INSERT INTO history(details) VALUES('${details}')`);
+    db.query(`INSERT INTO history(details, location) VALUES('${details}', 'Rwanda')`);
 }
 //  user signup
 app.post('/users/signup', (req, res)=>{
