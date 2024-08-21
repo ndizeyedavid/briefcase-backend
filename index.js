@@ -109,7 +109,7 @@ app.post('/users/login', (req, res)=>{
     let pswd = req.body.pswd;
             // res.json({uname: uname, pswd: pswd});
 
-    const sql = "SELECT * FROM users WHERE username = ? AND pswd = ?";
+    const sql = "SELECT username, pswd FROM users WHERE username = ? AND pswd = ?";
     db.query(sql, [uname, pswd], (err, results)=>{
         if (err) return console.log('\n\nOperation failed. Data came in very bad');
         
