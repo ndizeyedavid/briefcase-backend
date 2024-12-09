@@ -33,7 +33,7 @@ const changeBriefcaseState = (req, res) => {
 };
 
 const sendTrackingInfo = (req, res) => {
-  const { lat, long, status } = req.body;
+  const { lat = 0.567892, long = 1.45678904, status } = req.body;
 
   const sql =
     "INSERT INTO tracking(latitude, longitude, status) VALUES(? , ? , ?)";
