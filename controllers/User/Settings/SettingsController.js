@@ -1,12 +1,12 @@
 import db from "../../../DB.js";
 
 const viewSettings = (req, res) => {
-  const sql = "SELECT * FROM settings";
+  const sql = "SELECT * FROM notification";
 
   db.query(sql, (err, result) => {
     if (err)
       return res.status(500).json({
-        message: "Failed to display current settings",
+        message: "Failed to display current notification",
         error: err.message,
       });
 
@@ -19,7 +19,7 @@ const viewSettings = (req, res) => {
 const updateSettings = (req, res) => {
   const { notification } = req.body;
 
-  const sql = "UPDATE settings SET notification=?";
+  const sql = "UPDATE notification SET notification=?";
   db.query(sql, [notification], (err, result) => {
     if (err)
       return res.status(500).json({
