@@ -43,7 +43,7 @@ const sendTrackingInfo = (req, res) => {
       return res
         .status(500)
         .json({ message: "Unable to send tracking data", error: err.message });
-
+    db.query("INSERT INTO history(details, date) values('Briefcase state changed from board', CURRENT_TIMESTAMP())")
     res.status(201).json({ message: "Successfully sent tracking data" });
   });
 };
