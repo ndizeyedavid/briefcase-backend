@@ -1,7 +1,7 @@
 import db from "../../../DB.js";
 
 const viewSettings = (req, res) => {
-  const sql = "SELECT * FROM notification";
+  const sql = "SELECT * FROM notifications";
 
   db.query(sql, (err, result) => {
     if (err)
@@ -19,7 +19,7 @@ const viewSettings = (req, res) => {
 const updateSettings = (req, res) => {
   const { notification } = req.body;
 
-  const sql = "UPDATE notification SET notification=?";
+  const sql = "UPDATE notifications SET notification=?";
   db.query(sql, [notification], (err, result) => {
     if (err)
       return res.status(500).json({
