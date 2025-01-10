@@ -47,4 +47,15 @@ const sendTrackingInfo = (req, res) => {
     res.status(201).json({ message: "Successfully sent tracking data" });
   });
 };
-export { fetchStatus, changeBriefcaseState, sendTrackingInfo };
+
+const SaveFailedAttempt = (req, res) =>{
+  const sql = "INSERT INTO notifications(details, date) values('Someone is trying to gain unauthorised access', CURDATE())";
+  
+  db.query(sql, (err, result)=>{
+    if (err) return res.status(500).json({message: "Unable to save failed attempt", error: err.message});
+
+    res.status(201).json({message: "Failed attempt saved"})
+  })
+}
+
+export { fetchStatus, changeBriefcaseState, sendTrackingInfo, SaveFailedAttempt };
