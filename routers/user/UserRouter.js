@@ -8,14 +8,14 @@ import {
   viewSettings,
   updateSettings,
   ResetField,
+  FailedAttempts
 } from "../../controllers/User/Settings/SettingsController.js";
 
 import {
   trackingViewAll,
   trackingViewSome,
   trackingGetStatus,
-  updateTrackingStatus,
-  FailedAttempts
+  updateTrackingStatus
 } from "../../controllers/User/Tracking/TrackingController.js";
 
 const UserRouter = express.Router();
