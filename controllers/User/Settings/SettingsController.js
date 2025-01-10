@@ -50,4 +50,13 @@ const ResetField = (req, res) => {
     res.status(200).json({ message: `"${category}" reseted successfully` });
   });
 };
+
+const FailedAttempts = (req, res) => {
+  const sql = "SELECT * FROM notifications WHERE date=CURDATE()"
+  db.query(sql, (err, result)=>{
+    if (err) return res.status(500).json({message: "unable to fetch failed attempts", error: err.message});
+    res.status(200).json({result: result})
+  })
+}
+
 export { viewSettings, updateSettings, ResetField };
