@@ -15,6 +15,7 @@ import {
   trackingViewSome,
   trackingGetStatus,
   updateTrackingStatus,
+  FailedAttempts
 } from "../../controllers/User/Tracking/TrackingController.js";
 
 const UserRouter = express.Router();
@@ -33,5 +34,8 @@ UserRouter.get("/tracking/view/all", trackingViewAll);
 UserRouter.get("/tracking/view/:option", trackingViewSome);
 UserRouter.get("/tracking/status", trackingGetStatus);
 UserRouter.put("/tracking/status/update", updateTrackingStatus);
+
+// failed attempt Notification
+UserRouter.get("/notifications/failed/today", FailedAttempts)
 
 export default UserRouter;
