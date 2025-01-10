@@ -1,7 +1,7 @@
 import db from "../../../DB.js";
 
 const HistoryViewAll = (req, res) => {
-  const sql = "SELECT * FROM history ORBER date DESC";
+  const sql = "SELECT * FROM history ORDER BY date DESC";
 
   db.query(sql, (err, result) => {
     if (err)
