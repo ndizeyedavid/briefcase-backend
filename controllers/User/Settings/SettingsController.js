@@ -59,4 +59,4 @@ const FailedAttempts = (req, res) => {
   })
 }
 
-export { viewSettings, updateSettings, ResetField };
+export { viewSettings, updateSettings, ResetField, FailedAttempts };
