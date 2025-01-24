@@ -8,15 +8,16 @@ import {
   viewSettings,
   updateSettings,
   ResetField,
-  FailedAttempts
+  FailedAttempts,
 } from "../../controllers/User/Settings/SettingsController.js";
 
 import {
   trackingViewAll,
   trackingViewSome,
   trackingGetStatus,
-  updateTrackingStatus
+  updateTrackingStatus,
 } from "../../controllers/User/Tracking/TrackingController.js";
+import { login, updatePorfile } from "../../controllers/User/auth/auth.js";
 
 const UserRouter = express.Router();
 
@@ -36,6 +37,9 @@ UserRouter.get("/tracking/status", trackingGetStatus);
 UserRouter.put("/tracking/status/update", updateTrackingStatus);
 
 // failed attempt Notification
-UserRouter.get("/notifications/failed/today", FailedAttempts)
+UserRouter.get("/notifications/failed/today", FailedAttempts);
 
+// auth
+UserRouter.post("/login", login);
+UserRouter.put("/update", updatePorfile);
 export default UserRouter;
