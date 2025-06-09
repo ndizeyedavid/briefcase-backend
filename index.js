@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const port = process.env.PORT;
+const port = 8080;
 
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' })); 

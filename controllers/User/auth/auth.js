@@ -17,7 +17,7 @@ const login = (req, res) => {
         res.status(401).json({ message: "access denied" });
       }
     } else {
-      res.status(400).json({ message: "Incorrext email..." });
+      res.status(400).json({ message: "Incorrect email..." });
     }
   });
 };

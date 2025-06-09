@@ -18,6 +18,7 @@ import {
   updateTrackingStatus,
 } from "../../controllers/User/Tracking/TrackingController.js";
 import { login, updatePorfile } from "../../controllers/User/auth/auth.js";
+import { updateEmail, updatePassword } from "../../controllers/User/Settings/userAccount.js";
 
 const UserRouter = express.Router();
 
@@ -29,6 +30,8 @@ UserRouter.delete("/history/delete/:id", DeleteHistory);
 UserRouter.get("/settings/view", viewSettings);
 UserRouter.put("/settings/update", updateSettings);
 UserRouter.get("/settings/reset/:category", ResetField);
+UserRouter.put("/update-email", updateEmail);
+UserRouter.put("/update-password", updatePassword);
 
 // Tracking Router
 UserRouter.get("/tracking/view/all", trackingViewAll);
