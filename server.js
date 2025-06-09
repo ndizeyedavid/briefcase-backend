@@ -7,7 +7,7 @@ import UserRouter from "./routers/user/UserRouter.js";
 import BoardRouter from "./routers/board/BoardRouter.js";
 
 dotenv.config();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 const app = express();
 
